@@ -16,7 +16,7 @@ con<-dbConnect(MySQL(),dbname='stackoverflow2018new',host='localhost',password='
 
 # FA threshold
 response_time = dbGetQuery(con,"select response_time from AnswerRegressionModel")
-quantile(response_time$response_time,0.2) # 439s 20%:559s
+quantile(response_time$response_time,0.2) # 439s
 p<-ggplot(data=res_time,aes(x=res_time$response_time))+geom_histogram(bins = 100,fill="#5ab4ac")+scale_x_log10()
 p + theme(axis.title = element_text(size = 14),axis.text = element_text(size = 13)) + xlab("Response time (log scale)") + ylab("Number of answers")
 
